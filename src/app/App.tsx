@@ -45,6 +45,12 @@ import {
 } from "react-icons/si";
 import { FaAws, FaMicrosoft, FaJava } from "react-icons/fa";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
+import {
+  detectBrowserLocale,
+  getLabels,
+  getNextLocale,
+} from "./i18n";
+import type { Locale, SkillLevelKey } from "./types/labels";
 
 type FloatingIconCfg = {
   Icon: ComponentType<{ size?: number; className?: string }>;
@@ -259,7 +265,7 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [language, setLanguage] = useState<"en" | "es">("es");
+  const [language, setLanguage] = useState<Locale>(detectBrowserLocale);
 
   // Mutable ref read by the floating-icons physics loop.
   // Avoids React re-renders on each mouse move.
@@ -280,161 +286,10 @@ export default function App() {
   };
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "es" : "en"));
+    setLanguage((prev) => getNextLocale(prev));
   };
 
-  const translations = {
-    en: {
-      nav: {
-        about: "About",
-        experience: "Experience",
-        skills: "Skills",
-        contact: "Contact",
-      },
-      hero: {
-        role: "Tech Lead · Sr. Software Engineer",
-        title: "Engineering reliable software at enterprise scale.",
-        description:
-          "Professional with over 10 years of experience in the software industry, specialized in solution architecture, technical leadership, and full-stack development of high-performance enterprise applications.",
-        contactMe: "Get in touch",
-        viewExperience: "View experience",
-        available: "Available for projects",
-      },
-      highlights: {
-        years: "10+ Years of Experience",
-        yearsDesc:
-          "A decade delivering software and leading engineering teams across multiple industries.",
-        leadership: "Technical Leadership",
-        leadershipDesc:
-          "Proven track record mentoring engineers and shaping engineering culture.",
-        enterprise: "Enterprise Architecture",
-        enterpriseDesc:
-          "Design and delivery of secure, scalable, observable systems for production workloads.",
-      },
-      experience: {
-        title: "Professional Experience",
-        subtitle: "Selected roles and milestones",
-        jobs: [
-          {
-            title: "Senior Software Engineer & Technical Leader",
-            company: "Tech Corporation",
-            period: "2020 — Present",
-            description:
-              "Leading engineering teams in the design and implementation of enterprise-scale platforms. Driving technical excellence, code quality and mentoring across the organization.",
-          },
-          {
-            title: "Senior Full Stack Engineer",
-            company: "Innovation Labs",
-            period: "2017 — 2020",
-            description:
-              "Built high-performance web applications using modern frameworks. Implemented CI/CD pipelines, observability and code-quality standards.",
-          },
-          {
-            title: "Software Engineer",
-            company: "Digital Solutions Inc.",
-            period: "2014 — 2017",
-            description:
-              "Built scalable backend services and responsive frontend applications, working closely with cross-functional teams to ship reliable software.",
-          },
-        ],
-      },
-      skills: {
-        title: "Technical Expertise",
-        subtitle: "Stacks and disciplines I master",
-        serverSide: "Backend",
-        clientSide: "Frontend",
-        infrastructure: "Infrastructure & Data",
-      },
-      contact: {
-        title: "Let's build something great",
-        subtitle:
-          "Open to senior engineering, technical leadership and architecture opportunities. Reach out and let's talk.",
-        emailMe: "Email me",
-        linkedin: "LinkedIn",
-        github: "GitHub",
-      },
-      footer: {
-        copyright:
-          "© 2026 Senior Software Engineer & Technical Leader. All rights reserved.",
-      },
-    },
-    es: {
-      nav: {
-        about: "Acerca",
-        experience: "Experiencia",
-        skills: "Habilidades",
-        contact: "Contacto",
-      },
-      hero: {
-        role: "Tech Lead · Sr. Software Engineer",
-        title: "Construyendo software confiable a escala empresarial.",
-        description:
-          "Profesional con más de 10 años de experiencia en la industria del software, especializado en arquitectura de soluciones, liderazgo técnico y desarrollo full-stack de aplicaciones empresariales de alto rendimiento.",
-        contactMe: "Contáctame",
-        viewExperience: "Ver experiencia",
-        available: "Disponible para proyectos",
-      },
-      highlights: {
-        years: "10+ Años de Experiencia",
-        yearsDesc:
-          "Una década entregando software y liderando equipos de ingeniería en múltiples industrias.",
-        leadership: "Liderazgo Técnico",
-        leadershipDesc:
-          "Experiencia comprobada mentoreando ingenieros y formando cultura de ingeniería.",
-        enterprise: "Arquitectura Empresarial",
-        enterpriseDesc:
-          "Diseño y entrega de sistemas seguros, escalables y observables para producción.",
-      },
-      experience: {
-        title: "Experiencia Profesional",
-        subtitle: "Roles e hitos seleccionados",
-        jobs: [
-          {
-            title: "Senior Software Engineer & Technical Leader",
-            company: "Tech Corporation",
-            period: "2020 — Presente",
-            description:
-              "Liderando equipos de ingeniería en el diseño e implementación de plataformas a escala empresarial. Impulsando la excelencia técnica, calidad de código y mentoría en toda la organización.",
-          },
-          {
-            title: "Senior Full Stack Engineer",
-            company: "Innovation Labs",
-            period: "2017 — 2020",
-            description:
-              "Desarrollé aplicaciones web de alto rendimiento con frameworks modernos. Implementé pipelines de CI/CD, observabilidad y estándares de calidad de código.",
-          },
-          {
-            title: "Software Engineer",
-            company: "Digital Solutions Inc.",
-            period: "2014 — 2017",
-            description:
-              "Construí servicios backend escalables y aplicaciones frontend responsivas, trabajando con equipos multidisciplinarios para entregar software confiable.",
-          },
-        ],
-      },
-      skills: {
-        title: "Experiencia Técnica",
-        subtitle: "Stacks y disciplinas que domino",
-        serverSide: "Backend",
-        clientSide: "Frontend",
-        infrastructure: "Infraestructura y Datos",
-      },
-      contact: {
-        title: "Construyamos algo grande",
-        subtitle:
-          "Abierto a oportunidades senior de ingeniería, liderazgo técnico y arquitectura. Conversemos.",
-        emailMe: "Envíame un email",
-        linkedin: "LinkedIn",
-        github: "GitHub",
-      },
-      footer: {
-        copyright:
-          "© 2026 Senior Software Engineer & Technical Leader. Todos los derechos reservados.",
-      },
-    },
-  };
-
-  const t = translations[language];
+  const t = getLabels(language);
 
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.92]);
@@ -458,33 +313,6 @@ export default function App() {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-
-  const serverTechnologies = [
-    { name: "Java / Spring Boot", level: "Expert" },
-    { name: "C# / .NET / ASP.NET Core", level: "Expert" },
-    { name: "Node.js / NestJS", level: "Expert" },
-    { name: "Python", level: "Advanced" },
-    { name: "REST / GraphQL APIs", level: "Expert" },
-    { name: "Microservices Architecture", level: "Expert" },
-  ];
-
-  const clientTechnologies = [
-    { name: "React", level: "Expert" },
-    { name: "Angular", level: "Expert" },
-    { name: "TypeScript", level: "Expert" },
-    { name: "Next.js", level: "Advanced" },
-    { name: "Vue.js", level: "Advanced" },
-    { name: "State Management (Redux / NgRx)", level: "Expert" },
-  ];
-
-  const otherTechnologies = [
-    { name: "AWS · Azure · GCP", level: "Advanced" },
-    { name: "Docker · Kubernetes", level: "Advanced" },
-    { name: "PostgreSQL · MySQL", level: "Expert" },
-    { name: "MongoDB · NoSQL", level: "Advanced" },
-    { name: "Redis · Caching", level: "Advanced" },
-    { name: "Observability · CI/CD", level: "Expert" },
-  ];
 
   // Theme tokens — sober, professional palette (slate / zinc / blue / amber accent).
   const isDark = theme === "dark";
@@ -610,9 +438,9 @@ export default function App() {
             </motion.div>
             <span className="text-xl tracking-tight">
               <span className={isDark ? "text-white" : "text-slate-900"}>
-                Port
+                {t.nav.brandPrefix}
               </span>
-              <span className="text-blue-400">folio</span>
+              <span className="text-blue-400">{t.nav.brandSuffix}</span>
             </span>
           </motion.div>
 
@@ -781,13 +609,17 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55, duration: 0.8 }}
-              className={`text-4xl md:text-6xl tracking-tight mb-8 max-w-4xl mx-auto leading-[1.1] ${
-                isDark
-                  ? "bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent"
-                  : "bg-gradient-to-b from-slate-900 via-slate-700 to-slate-500 bg-clip-text text-transparent"
-              }`}
+              className="text-4xl md:text-6xl tracking-tight mb-8 max-w-4xl mx-auto leading-[1.2]"
             >
-              {t.hero.title}
+              <span
+                className={`inline-block pb-2 ${
+                  isDark
+                    ? "bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent"
+                    : "bg-gradient-to-b from-slate-900 via-slate-700 to-slate-500 bg-clip-text text-transparent"
+                }`}
+              >
+                {t.hero.title}
+              </span>
             </motion.h1>
 
             <motion.p
@@ -796,37 +628,17 @@ export default function App() {
               transition={{ delay: 0.7, duration: 0.8 }}
               className={`text-lg md:text-xl ${textMutedClass} max-w-3xl mx-auto mb-12 leading-relaxed`}
             >
-              {language === "es" ? (
-                <>
-                  Profesional con más de{" "}
-                  <span className={isDark ? "text-blue-300" : "text-blue-600"}>
-                    10 años de experiencia
-                  </span>{" "}
-                  en la industria del software, especializado en{" "}
-                  <span
-                    className={isDark ? "text-amber-300" : "text-amber-600"}
-                  >
-                    arquitectura de soluciones
-                  </span>
-                  , liderazgo técnico y desarrollo full-stack de aplicaciones
-                  empresariales de alto rendimiento.
-                </>
-              ) : (
-                <>
-                  Professional with over{" "}
-                  <span className={isDark ? "text-blue-300" : "text-blue-600"}>
-                    10 years of experience
-                  </span>{" "}
-                  in the software industry, specialized in{" "}
-                  <span
-                    className={isDark ? "text-amber-300" : "text-amber-600"}
-                  >
-                    solution architecture
-                  </span>
-                  , technical leadership, and full-stack development of
-                  high-performance enterprise applications.
-                </>
-              )}
+              {t.hero.description.before}
+              <span className={isDark ? "text-blue-300" : "text-blue-600"}>
+                {t.hero.description.highlightExperience}
+              </span>
+              {t.hero.description.middle}
+              <span
+                className={isDark ? "text-amber-300" : "text-amber-600"}
+              >
+                {t.hero.description.highlightArchitecture}
+              </span>
+              {t.hero.description.after}
             </motion.p>
 
             <motion.div
@@ -1001,14 +813,16 @@ export default function App() {
               />
             </motion.div>
 
-            <h2
-              className={`text-4xl md:text-5xl tracking-tight mb-4 ${
-                isDark
-                  ? "bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
-                  : "bg-gradient-to-b from-slate-900 to-slate-600 bg-clip-text text-transparent"
-              }`}
-            >
-              {t.experience.title}
+            <h2 className="text-4xl md:text-5xl tracking-tight mb-4 leading-[1.2]">
+              <span
+                className={`inline-block pb-1.5 ${
+                  isDark
+                    ? "bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
+                    : "bg-gradient-to-b from-slate-900 to-slate-600 bg-clip-text text-transparent"
+                }`}
+              >
+                {t.experience.title}
+              </span>
             </h2>
             <motion.div
               className="w-20 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto"
@@ -1153,14 +967,16 @@ export default function App() {
               <Code2 className="w-10 h-10 text-blue-400" strokeWidth={1.5} />
             </motion.div>
 
-            <h2
-              className={`text-4xl md:text-5xl tracking-tight mb-4 ${
-                isDark
-                  ? "bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
-                  : "bg-gradient-to-b from-slate-900 to-slate-600 bg-clip-text text-transparent"
-              }`}
-            >
-              {t.skills.title}
+            <h2 className="text-4xl md:text-5xl tracking-tight mb-4 leading-[1.2]">
+              <span
+                className={`inline-block pb-1.5 ${
+                  isDark
+                    ? "bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
+                    : "bg-gradient-to-b from-slate-900 to-slate-600 bg-clip-text text-transparent"
+                }`}
+              >
+                {t.skills.title}
+              </span>
             </h2>
             <motion.div
               className="w-20 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto"
@@ -1185,7 +1001,7 @@ export default function App() {
               {
                 title: t.skills.serverSide,
                 icon: Server,
-                items: serverTechnologies,
+                items: t.skills.technologies.server,
                 anim: { rotate: [0, 360] },
                 animOpts: {
                   duration: 16,
@@ -1196,14 +1012,14 @@ export default function App() {
               {
                 title: t.skills.clientSide,
                 icon: Monitor,
-                items: clientTechnologies,
+                items: t.skills.technologies.client,
                 anim: { scale: [1, 1.12, 1] },
                 animOpts: { duration: 2.4, repeat: Infinity },
               },
               {
                 title: t.skills.infrastructure,
                 icon: Database,
-                items: otherTechnologies,
+                items: t.skills.technologies.infrastructure,
                 anim: { y: [0, -6, 0] },
                 animOpts: { duration: 2.4, repeat: Infinity },
               },
@@ -1280,7 +1096,7 @@ export default function App() {
                         </span>
                         <span
                           className={`text-[11px] tracking-[0.15em] uppercase px-2.5 py-1 rounded ${
-                            tech.level === "Expert"
+                            tech.levelKey === "expert"
                               ? isDark
                                 ? "text-blue-300 bg-blue-500/10 border border-blue-500/20"
                                 : "text-blue-700 bg-blue-50 border border-blue-200"
@@ -1289,7 +1105,7 @@ export default function App() {
                                 : "text-slate-600 bg-slate-100 border border-slate-200"
                           }`}
                         >
-                          {tech.level}
+                          {t.skills.levels[tech.levelKey as SkillLevelKey]}
                         </span>
                       </motion.div>
                     ))}
@@ -1309,10 +1125,10 @@ export default function App() {
             } backdrop-blur-xl`}
           >
             {[
-              { icon: Cpu, label: language === "es" ? "Alto rendimiento" : "High performance" },
-              { icon: ShieldCheck, label: language === "es" ? "Seguridad" : "Security first" },
-              { icon: Database, label: language === "es" ? "Datos a escala" : "Data at scale" },
-              { icon: Server, label: language === "es" ? "Cloud native" : "Cloud native" },
+              { icon: Cpu, label: t.skills.techStrip.performance },
+              { icon: ShieldCheck, label: t.skills.techStrip.security },
+              { icon: Database, label: t.skills.techStrip.data },
+              { icon: Server, label: t.skills.techStrip.cloud },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div
@@ -1369,14 +1185,16 @@ export default function App() {
               </div>
             </motion.div>
 
-            <h2
-              className={`text-4xl md:text-6xl tracking-tight mb-6 ${
-                isDark
-                  ? "bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
-                  : "bg-gradient-to-b from-slate-900 to-slate-600 bg-clip-text text-transparent"
-              }`}
-            >
-              {t.contact.title}
+            <h2 className="text-4xl md:text-6xl tracking-tight mb-6 leading-[1.2]">
+              <span
+                className={`inline-block pb-2 ${
+                  isDark
+                    ? "bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
+                    : "bg-gradient-to-b from-slate-900 to-slate-600 bg-clip-text text-transparent"
+                }`}
+              >
+                {t.contact.title}
+              </span>
             </h2>
             <motion.div
               className="w-20 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto mb-8"

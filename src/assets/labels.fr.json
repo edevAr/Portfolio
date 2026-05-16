@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "about": "À propos",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "contact": "Contact",
+    "brandPrefix": "Port",
+    "brandSuffix": "folio"
+  },
+  "hero": {
+    "role": "Tech Lead · Ingénieur logiciel senior",
+    "title": "Concevoir des logiciels fiables à l'échelle entreprise.",
+    "description": {
+      "before": "Professionnel avec plus de ",
+      "highlightExperience": "10 ans d'expérience",
+      "middle": " dans l'industrie du logiciel, spécialisé en ",
+      "highlightArchitecture": "architecture de solutions",
+      "after": ", leadership technique et développement full-stack d'applications d'entreprise haute performance."
+    },
+    "contactMe": "Me contacter",
+    "viewExperience": "Voir l'expérience",
+    "available": "Disponible pour des projets"
+  },
+  "highlights": {
+    "years": "10+ ans d'expérience",
+    "yearsDesc": "Une décennie à livrer des logiciels et diriger des équipes d'ingénierie dans plusieurs secteurs.",
+    "leadership": "Leadership technique",
+    "leadershipDesc": "Expérience avérée en mentorat d'ingénieurs et en culture d'ingénierie.",
+    "enterprise": "Architecture d'entreprise",
+    "enterpriseDesc": "Conception et livraison de systèmes sécurisés, évolutifs et observables en production."
+  },
+  "experience": {
+    "title": "Expérience professionnelle",
+    "subtitle": "Rôles et jalons sélectionnés",
+    "jobs": [
+      {
+        "title": "Ingénieur logiciel senior & leader technique",
+        "company": "Tech Corporation",
+        "period": "2020 — Aujourd'hui",
+        "description": "Direction d'équipes d'ingénierie dans la conception et la mise en œuvre de plateformes à l'échelle entreprise. Promotion de l'excellence technique, de la qualité du code et du mentorat."
+      },
+      {
+        "title": "Ingénieur Full Stack senior",
+        "company": "Innovation Labs",
+        "period": "2017 — 2020",
+        "description": "Développement d'applications web haute performance avec des frameworks modernes. Mise en place de pipelines CI/CD, d'observabilité et de standards de qualité."
+      },
+      {
+        "title": "Ingénieur logiciel",
+        "company": "Digital Solutions Inc.",
+        "period": "2014 — 2017",
+        "description": "Création de services backend évolutifs et d'applications frontend responsives, en collaboration avec des équipes pluridisciplinaires."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Expertise technique",
+    "subtitle": "Stacks et disciplines maîtrisés",
+    "serverSide": "Backend",
+    "clientSide": "Frontend",
+    "infrastructure": "Infrastructure & Données",
+    "levels": {
+      "expert": "Expert",
+      "advanced": "Avancé"
+    },
+    "technologies": {
+      "server": [
+        { "name": "Java / Spring Boot", "levelKey": "expert" },
+        { "name": "C# / .NET / ASP.NET Core", "levelKey": "expert" },
+        { "name": "Node.js / NestJS", "levelKey": "expert" },
+        { "name": "Python", "levelKey": "advanced" },
+        { "name": "REST / GraphQL APIs", "levelKey": "expert" },
+        { "name": "Microservices Architecture", "levelKey": "expert" }
+      ],
+      "client": [
+        { "name": "React", "levelKey": "expert" },
+        { "name": "Angular", "levelKey": "expert" },
+        { "name": "TypeScript", "levelKey": "expert" },
+        { "name": "Next.js", "levelKey": "advanced" },
+        { "name": "Vue.js", "levelKey": "advanced" },
+        { "name": "State Management (Redux / NgRx)", "levelKey": "expert" }
+      ],
+      "infrastructure": [
+        { "name": "AWS · Azure · GCP", "levelKey": "advanced" },
+        { "name": "Docker · Kubernetes", "levelKey": "advanced" },
+        { "name": "PostgreSQL · MySQL", "levelKey": "expert" },
+        { "name": "MongoDB · NoSQL", "levelKey": "advanced" },
+        { "name": "Redis · Caching", "levelKey": "advanced" },
+        { "name": "Observability · CI/CD", "levelKey": "expert" }
+      ]
+    },
+    "techStrip": {
+      "performance": "Haute performance",
+      "security": "Sécurité d'abord",
+      "data": "Données à l'échelle",
+      "cloud": "Cloud native"
+    }
+  },
+  "contact": {
+    "title": "Construisons quelque chose de grand",
+    "subtitle": "Ouvert aux opportunités senior en ingénierie, leadership technique et architecture. Échangeons.",
+    "emailMe": "M'envoyer un email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2026 Ingénieur logiciel senior & leader technique. Tous droits réservés."
+  }
+}
