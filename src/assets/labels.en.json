@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact",
+    "brandPrefix": "Port",
+    "brandSuffix": "folio"
+  },
+  "hero": {
+    "role": "Tech Lead · Sr. Software Engineer",
+    "title": "Engineering reliable software at enterprise scale.",
+    "description": {
+      "before": "Professional with over ",
+      "highlightExperience": "10 years of experience",
+      "middle": " in the software industry, specialized in ",
+      "highlightArchitecture": "solution architecture",
+      "after": ", technical leadership, and full-stack development of high-performance enterprise applications."
+    },
+    "contactMe": "Get in touch",
+    "viewExperience": "View experience",
+    "available": "Available for projects"
+  },
+  "highlights": {
+    "years": "10+ Years of Experience",
+    "yearsDesc": "A decade delivering software and leading engineering teams across multiple industries.",
+    "leadership": "Technical Leadership",
+    "leadershipDesc": "Proven track record mentoring engineers and shaping engineering culture.",
+    "enterprise": "Enterprise Architecture",
+    "enterpriseDesc": "Design and delivery of secure, scalable, observable systems for production workloads."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "Selected roles and milestones",
+    "jobs": [
+      {
+        "title": "Senior Software Engineer & Technical Leader",
+        "company": "Tech Corporation",
+        "period": "2020 — Present",
+        "description": "Leading engineering teams in the design and implementation of enterprise-scale platforms. Driving technical excellence, code quality and mentoring across the organization."
+      },
+      {
+        "title": "Senior Full Stack Engineer",
+        "company": "Innovation Labs",
+        "period": "2017 — 2020",
+        "description": "Built high-performance web applications using modern frameworks. Implemented CI/CD pipelines, observability and code-quality standards."
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Digital Solutions Inc.",
+        "period": "2014 — 2017",
+        "description": "Built scalable backend services and responsive frontend applications, working closely with cross-functional teams to ship reliable software."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Expertise",
+    "subtitle": "Stacks and disciplines I master",
+    "serverSide": "Backend",
+    "clientSide": "Frontend",
+    "infrastructure": "Infrastructure & Data",
+    "levels": {
+      "expert": "Expert",
+      "advanced": "Advanced"
+    },
+    "technologies": {
+      "server": [
+        { "name": "Java / Spring Boot", "levelKey": "expert" },
+        { "name": "C# / .NET / ASP.NET Core", "levelKey": "expert" },
+        { "name": "Node.js / NestJS", "levelKey": "expert" },
+        { "name": "Python", "levelKey": "advanced" },
+        { "name": "REST / GraphQL APIs", "levelKey": "expert" },
+        { "name": "Microservices Architecture", "levelKey": "expert" }
+      ],
+      "client": [
+        { "name": "React", "levelKey": "expert" },
+        { "name": "Angular", "levelKey": "expert" },
+        { "name": "TypeScript", "levelKey": "expert" },
+        { "name": "Next.js", "levelKey": "advanced" },
+        { "name": "Vue.js", "levelKey": "advanced" },
+        { "name": "State Management (Redux / NgRx)", "levelKey": "expert" }
+      ],
+      "infrastructure": [
+        { "name": "AWS · Azure · GCP", "levelKey": "advanced" },
+        { "name": "Docker · Kubernetes", "levelKey": "advanced" },
+        { "name": "PostgreSQL · MySQL", "levelKey": "expert" },
+        { "name": "MongoDB · NoSQL", "levelKey": "advanced" },
+        { "name": "Redis · Caching", "levelKey": "advanced" },
+        { "name": "Observability · CI/CD", "levelKey": "expert" }
+      ]
+    },
+    "techStrip": {
+      "performance": "High performance",
+      "security": "Security first",
+      "data": "Data at scale",
+      "cloud": "Cloud native"
+    }
+  },
+  "contact": {
+    "title": "Let's build something great",
+    "subtitle": "Open to senior engineering, technical leadership and architecture opportunities. Reach out and let's talk.",
+    "emailMe": "Email me",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2026 Senior Software Engineer & Technical Leader. All rights reserved."
+  }
+}

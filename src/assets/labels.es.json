@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "about": "Acerca",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "brandPrefix": "Port",
+    "brandSuffix": "folio"
+  },
+  "hero": {
+    "role": "Tech Lead · Sr. Software Engineer",
+    "title": "Construyendo software confiable a escala empresarial.",
+    "description": {
+      "before": "Profesional con más de ",
+      "highlightExperience": "10 años de experiencia",
+      "middle": " en la industria del software, especializado en ",
+      "highlightArchitecture": "arquitectura de soluciones",
+      "after": ", liderazgo técnico y desarrollo full-stack de aplicaciones empresariales de alto rendimiento."
+    },
+    "contactMe": "Contáctame",
+    "viewExperience": "Ver experiencia",
+    "available": "Disponible para proyectos"
+  },
+  "highlights": {
+    "years": "10+ Años de Experiencia",
+    "yearsDesc": "Una década entregando software y liderando equipos de ingeniería en múltiples industrias.",
+    "leadership": "Liderazgo Técnico",
+    "leadershipDesc": "Experiencia comprobada mentoreando ingenieros y formando cultura de ingeniería.",
+    "enterprise": "Arquitectura Empresarial",
+    "enterpriseDesc": "Diseño y entrega de sistemas seguros, escalables y observables para producción."
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Roles e hitos seleccionados",
+    "jobs": [
+      {
+        "title": "Senior Software Engineer & Technical Leader",
+        "company": "Tech Corporation",
+        "period": "2020 — Presente",
+        "description": "Liderando equipos de ingeniería en el diseño e implementación de plataformas a escala empresarial. Impulsando la excelencia técnica, calidad de código y mentoría en toda la organización."
+      },
+      {
+        "title": "Senior Full Stack Engineer",
+        "company": "Innovation Labs",
+        "period": "2017 — 2020",
+        "description": "Desarrollé aplicaciones web de alto rendimiento con frameworks modernos. Implementé pipelines de CI/CD, observabilidad y estándares de calidad de código."
+      },
+      {
+        "title": "Software Engineer",
+        "company": "Digital Solutions Inc.",
+        "period": "2014 — 2017",
+        "description": "Construí servicios backend escalables y aplicaciones frontend responsivas, trabajando con equipos multidisciplinarios para entregar software confiable."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Experiencia Técnica",
+    "subtitle": "Stacks y disciplinas que domino",
+    "serverSide": "Backend",
+    "clientSide": "Frontend",
+    "infrastructure": "Infraestructura y Datos",
+    "levels": {
+      "expert": "Experto",
+      "advanced": "Avanzado"
+    },
+    "technologies": {
+      "server": [
+        { "name": "Java / Spring Boot", "levelKey": "expert" },
+        { "name": "C# / .NET / ASP.NET Core", "levelKey": "expert" },
+        { "name": "Node.js / NestJS", "levelKey": "expert" },
+        { "name": "Python", "levelKey": "advanced" },
+        { "name": "REST / GraphQL APIs", "levelKey": "expert" },
+        { "name": "Microservices Architecture", "levelKey": "expert" }
+      ],
+      "client": [
+        { "name": "React", "levelKey": "expert" },
+        { "name": "Angular", "levelKey": "expert" },
+        { "name": "TypeScript", "levelKey": "expert" },
+        { "name": "Next.js", "levelKey": "advanced" },
+        { "name": "Vue.js", "levelKey": "advanced" },
+        { "name": "State Management (Redux / NgRx)", "levelKey": "expert" }
+      ],
+      "infrastructure": [
+        { "name": "AWS · Azure · GCP", "levelKey": "advanced" },
+        { "name": "Docker · Kubernetes", "levelKey": "advanced" },
+        { "name": "PostgreSQL · MySQL", "levelKey": "expert" },
+        { "name": "MongoDB · NoSQL", "levelKey": "advanced" },
+        { "name": "Redis · Caching", "levelKey": "advanced" },
+        { "name": "Observability · CI/CD", "levelKey": "expert" }
+      ]
+    },
+    "techStrip": {
+      "performance": "Alto rendimiento",
+      "security": "Seguridad",
+      "data": "Datos a escala",
+      "cloud": "Cloud native"
+    }
+  },
+  "contact": {
+    "title": "Construyamos algo grande",
+    "subtitle": "Abierto a oportunidades senior de ingeniería, liderazgo técnico y arquitectura. Conversemos.",
+    "emailMe": "Envíame un email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "© 2026 Senior Software Engineer & Technical Leader. Todos los derechos reservados."
+  }
+}
